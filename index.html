@@ -8,7 +8,7 @@
 <meta name="author" content="Pranav Dabke">
 <meta name="keywords" content="Pranav Dabke, AI ML intern, machine learning, RAG, AI agents, computer vision, YOLO, VLM, Qwen3-VL, PyTorch, Bengaluru">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0b0d10">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://pranavdabke.github.io/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -47,12 +47,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg:#0a0c0f; --panel:#11141a; --panel2:#151922; --line:#222833; --text:#e8ebef; --muted:#97a1ad; --body:#c5ccd4;
-    --accent:#7cf0c5; --accent2:#7aa8ff; --accent3:#f5b971; --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#000; --panel:rgba(12,12,12,.72); --panel2:rgba(22,22,22,.8); --line:rgba(255,255,255,.11); --text:#f4f4f4; --muted:#8c8c8c; --body:#c9c9c9;
+    --accent:#ffffff; --accent2:#e2e2e2; --accent3:#bdbdbd; --head:'Space Grotesk',Inter,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;scroll-padding-top:70px}
@@ -63,26 +63,27 @@
   .mono{font-family:var(--mono)}
 
   /* nav */
-  nav{position:sticky;top:0;z-index:20;background:rgba(10,12,15,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
   .logo{font-family:var(--mono);font-weight:500;color:var(--accent)}
   .logo span{color:var(--muted)}
   nav ul{display:flex;gap:28px;list-style:none;font-size:14px;color:var(--muted)}
   nav ul a{transition:.15s} nav ul a:hover{color:var(--text)}
-  .nav-cta{font-size:14px;font-weight:600;color:#04120c;background:var(--accent);padding:7px 14px;border-radius:7px}
+  .nav-cta{font-size:14px;font-weight:600;color:#000;background:var(--accent);padding:7px 14px;border-radius:7px}
 
   /* hero */
   header{position:relative;padding:100px 0 80px;overflow:hidden}
   header::before{content:"";position:absolute;inset:0;
     background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:48px 48px;opacity:.35;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%)}
+    background-size:48px 48px;opacity:.5;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%)}
   header::after{content:"";position:absolute;width:640px;height:640px;right:-160px;top:-260px;border-radius:50%;
-    background:radial-gradient(circle,rgba(122,168,255,.18),transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,rgba(255,255,255,.09),transparent 65%);pointer-events:none}
   .hero{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
   .status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;color:var(--accent);
-    border:1px solid rgba(124,240,197,.3);background:rgba(124,240,197,.06);border-radius:999px;padding:6px 14px;margin-bottom:26px}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(124,240,197,.6);animation:pulse 2s infinite}
-  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(124,240,197,0)}100%{box-shadow:0 0 0 0 rgba(124,240,197,0)}}
+    border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.05);border-radius:999px;padding:6px 14px;margin-bottom:26px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  h1,h2,h3,h4,.st b,.m b{font-family:var(--head)}
   h1{font-size:clamp(44px,7vw,74px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
   .typed{font-family:var(--mono);font-size:clamp(17px,2.2vw,21px);color:var(--accent2);margin-top:18px;min-height:1.6em}
   .typed .cur{display:inline-block;width:10px;background:var(--accent2);margin-left:2px;animation:blink 1s steps(1) infinite}
@@ -90,18 +91,18 @@
   .lede{font-size:clamp(17px,2vw,19px);color:var(--body);margin-top:14px;max-width:560px}
   .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:9px;font-size:15px;font-weight:500;border:1px solid var(--line);background:var(--panel);transition:.15s}
-  .btn:hover{border-color:#3a4553;transform:translateY(-1px)}
-  .btn.primary{background:var(--accent);color:#04120c;border-color:var(--accent);font-weight:600}
+  .btn:hover{border-color:rgba(255,255,255,.45);transform:translateY(-1px)}
+  .btn.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
   .btn svg{width:17px;height:17px}
   .loc{margin-top:26px;font-family:var(--mono);font-size:13px;color:var(--muted)}
 
   .term{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
   .term-bar{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid var(--line);align-items:center}
   .term-bar i{width:11px;height:11px;border-radius:50%;background:#2a313c}
-  .term-bar i:nth-child(1){background:#ff6b6b}.term-bar i:nth-child(2){background:#f5b971}.term-bar i:nth-child(3){background:#7cf0c5}
+  .term-bar i:nth-child(1){background:#fff}.term-bar i:nth-child(2){background:#888}.term-bar i:nth-child(3){background:#444}
   .term-bar span{margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--muted)}
   .term pre{font-family:var(--mono);font-size:13px;line-height:1.75;padding:18px 20px;color:var(--body);white-space:pre-wrap}
-  .k{color:var(--accent2)} .s{color:var(--accent)} .n{color:var(--accent3)} .c{color:#5d6773}
+  .k{color:#8c8c8c} .s{color:#fff} .n{color:#d6d6d6;font-weight:500} .c{color:#555}
 
   /* stats */
   .stats-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
@@ -143,19 +144,19 @@
   .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
   .node{font-family:var(--mono);font-size:12.5px;padding:7px 11px;border-radius:7px;background:var(--panel2);border:1px solid var(--line);color:var(--text)}
   .node.hl{border-color:var(--c1,var(--accent));color:var(--c1,var(--accent))}
-  .arr{color:#4a5563;font-family:var(--mono)}
+  .arr{color:#5a5a5a;font-family:var(--mono)}
   .flow + .flow{margin-top:10px}
 
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
   .tag{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
-  .shot{margin-top:28px;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#12151a}
+  .shot{margin-top:28px;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#0d0d0d}
   .shot img{width:100%}
   .cap{font-size:12.5px;color:var(--muted);font-family:var(--mono);padding:10px 14px;border-top:1px solid var(--line)}
 
   /* more projects */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .mini{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;transition:.2s}
-  .mini:hover{border-color:#36404c;transform:translateY(-3px)}
+  .mini:hover{border-color:rgba(255,255,255,.35);transform:translateY(-3px)}
   .mini .ic{font-family:var(--mono);font-size:12px;color:var(--accent2);margin-bottom:12px}
   .mini h4{font-size:17px;letter-spacing:-.01em}
   .mini p{font-size:14.5px;color:var(--body);margin-top:8px;flex:1}
@@ -181,13 +182,27 @@
   .cert i{font-style:normal;font-family:var(--mono);color:var(--accent);flex-shrink:0}
 
   /* contact */
-  .contact-box{background:linear-gradient(135deg,rgba(124,240,197,.08),rgba(122,168,255,.08));border:1px solid var(--line);border-radius:20px;padding:48px}
+  .contact-box{background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:20px;padding:48px}
   .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
   .contact-grid a{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;transition:.15s;overflow-wrap:anywhere;font-size:15px}
   .contact-grid a:hover{border-color:var(--accent)}
   .contact-grid small{display:block;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:4px}
   footer{padding:36px 0 48px;color:var(--muted);font-size:13px;font-family:var(--mono)}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  /* futuristic layer */
+  #net{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  nav,header,section,footer,.stats-strip{position:relative;z-index:1}
+  nav{z-index:20}
+  .case,.mini,.sg,.item,.term,.contact-box,.contact-grid a,.m,.flow-wrap{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .stats-strip{background:rgba(8,8,8,.7);backdrop-filter:blur(6px)}
+  .flow-wrap{background:rgba(0,0,0,.55)}
+  h1{background:linear-gradient(180deg,#fff 30%,#8a8a8a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .case::before{background:linear-gradient(90deg,#fff,transparent 70%)}
+  .node.hl{box-shadow:0 0 14px rgba(255,255,255,.18)}
+  .btn.primary{box-shadow:0 0 24px rgba(255,255,255,.25)}
+  .btn.primary:hover{box-shadow:0 0 34px rgba(255,255,255,.4)}
+  .scan{position:fixed;inset:0;z-index:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
 
   /* reveal */
   .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -217,6 +232,7 @@
 </style>
 </head>
 <body>
+<canvas id="net" aria-hidden="true"></canvas><div class="scan" aria-hidden="true"></div>
 
 <nav><div class="wrap">
   <a class="logo" href="#top">pranav<span>.</span>dabke</a>
@@ -258,7 +274,7 @@
         <span class="k">return</span> {
           <span class="s">"voice_agent_latency"</span>: <span class="n">"~1.25s"</span>,
           <span class="s">"dashcam_videos_run"</span>:  <span class="n">"~100"</span>,
-          <span class="s">"plate_detector_imgs"</span>: <span class="n">"38K"</span>,
+          <span class="s">"plate_detector_mAP50"</span>: <span class="n">0.985</span>,
           <span class="s">"platforms_one_app"</span>:   <span class="n">5</span>,
         }  <span class="c"># see below ↓</span></pre>
   </div>
@@ -266,7 +282,7 @@
 
 <div class="stats-strip"><div class="wrap">
   <div class="st"><b>~1.25<em>s</em></b><span>voice-agent response latency</span></div>
-  <div class="st"><b>38<em>K</em></b><span>images to train RoadReaper</span></div>
+  <div class="st"><b>0.985</b><span>RoadReaper mAP@0.5 (plates)</span></div>
   <div class="st"><b>~100</b><span>dashcam videos through INDRA</span></div>
   <div class="st"><b>3</b><span>VLMs benchmarked head-to-head</span></div>
 </div></div>
@@ -332,7 +348,7 @@
       <div>
         <p>Off-the-shelf detectors struggle on Indian roads: mixed traffic, non-standard plates, autos, triple riding. INDRA combines YOLO detection, tracking and a vision-language model in one pipeline that processes video in batches and writes a single master report.</p>
         <ul class="pts">
-          <li><b>RoadReaper:</b> my custom YOLO number-plate detector, trained on 38K Indian plate images, with about 95% plate accuracy.</li>
+          <li><b>RoadReaper:</b> my custom YOLO number-plate detector, trained on 42,750 Indian plate images, reaching mAP@0.5 of 0.985.</li>
           <li><b>YOLOv8m + ByteTrack</b> to detect and track vehicles; <b>Qwen3-VL-4B</b> reads plates with multi-read consensus and describes the scene (weather, congestion, accidents).</li>
           <li><b>5 new violation classes</b> added, such as triple riding, phone use while riding, wrong-lane riding and missing plates.</li>
           <li>Plate validation that rejects false reads such as video watermarks and dashcam clock overlays, with Levenshtein clustering so each physical plate gives one row.</li>
@@ -341,8 +357,8 @@
         </ul>
       </div>
       <div class="metrics">
-        <div class="m"><b>38K</b><span>plate images for RoadReaper</span></div>
-        <div class="m"><b>~95%</b><span>number-plate accuracy</span></div>
+        <div class="m"><b>42.7K</b><span>plate images for RoadReaper</span></div>
+        <div class="m"><b>0.985</b><span>plate-detection mAP@0.5</span></div>
         <div class="m"><b>~100</b><span>dashcam videos processed</span></div>
         <div class="m"><b>+5</b><span>new violation classes</span></div>
       </div>
@@ -503,6 +519,27 @@
       setTimeout(tick,del?35:65);
     }
     setTimeout(tick,1800);
+  })();
+  // neural-network background
+  (function(){
+    var c=document.getElementById('net'),x=c.getContext('2d'),dpr=Math.min(window.devicePixelRatio||1,2);
+    var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches,W,H,P=[],mouse={x:-9e3,y:-9e3};
+    function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.min(110,W*H/14000));P=[];
+      for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.4+.6,p:Math.random()*6.28});}
+    function draw(t){x.clearRect(0,0,W,H);var D=140;
+      for(var i=0;i<P.length;i++){var a=P[i];
+        if(!still){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+        for(var j=i+1;j<P.length;j++){var b=P[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<D){x.strokeStyle='rgba(255,255,255,'+(0.13*(1-d/D))+')';x.lineWidth=.6;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}}
+        var mx=a.x-mouse.x,my=a.y-mouse.y,md=Math.sqrt(mx*mx+my*my);
+        if(md<180){x.strokeStyle='rgba(255,255,255,'+(0.35*(1-md/180))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(mouse.x,mouse.y);x.stroke();}
+        var glow=.45+.35*Math.sin((t||0)/900+a.p);
+        x.fillStyle='rgba(255,255,255,'+glow+')';x.beginPath();x.arc(a.x,a.y,a.r,0,6.28);x.fill();}
+      if(!still)requestAnimationFrame(draw);}
+    addEventListener('resize',size);addEventListener('mousemove',function(e){mouse.x=e.clientX;mouse.y=e.clientY});
+    addEventListener('mouseout',function(){mouse.x=mouse.y=-9e3});
+    size();draw(0);
   })();
   // reveal on scroll
   (function(){
