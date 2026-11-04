@@ -166,6 +166,22 @@
   .mini.img .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
   .mini.img img{aspect-ratio:2/1;object-fit:cover;border-bottom:1px solid var(--line)}
 
+  .phones{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:30px;padding:34px 30px 26px;border:1px solid var(--line);border-radius:16px;
+    background:radial-gradient(ellipse 70% 90% at 50% 100%,rgba(255,255,255,.07),transparent 70%),rgba(0,0,0,.5)}
+  .phone{margin:0;text-align:center;transition:transform .35s ease}
+  .phone img{width:100%;border-radius:22px;border:6px solid #1a1a1a;outline:1px solid rgba(255,255,255,.18);
+    box-shadow:0 24px 50px -18px rgba(0,0,0,.9),0 0 30px rgba(255,255,255,.06);filter:grayscale(.15)}
+  .phone:hover{transform:translateY(-6px)}
+  .phone figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:14px}
+  .mini.img img{filter:grayscale(1) contrast(1.05);transition:filter .4s;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center 40%}
+  .mini.img:hover img{filter:none}
+  .mini.wide{grid-column:span 2;flex-direction:row}
+  .mini.wide img{width:46%;height:auto;aspect-ratio:auto;align-self:stretch;object-fit:cover;border-bottom:0;border-right:1px solid var(--line)}
+  .mini p{flex:0 1 auto}
+  .mini.all{justify-content:center;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.01))}
+  .mini.all h4{font-size:22px}
+  .mini.all .go{margin-top:18px}
+  .mini .tags{margin-top:auto;padding-top:14px}
   /* skills */
   .skill-groups{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
   .sg{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -213,6 +229,7 @@
     .hero{grid-template-columns:1fr}
     .case-grid{grid-template-columns:1fr}
     .grid3{grid-template-columns:1fr 1fr}
+    .phones{grid-template-columns:repeat(2,1fr)}
     .skill-groups{grid-template-columns:repeat(3,1fr)}
     .contact-grid{grid-template-columns:1fr 1fr}
   }
@@ -226,6 +243,8 @@
     .case{padding:24px}
     .metrics{grid-template-columns:1fr 1fr}
     .grid3,.two,.contact-grid{grid-template-columns:1fr}
+    .mini.wide{grid-column:auto;flex-direction:column}.mini.wide img{width:100%;border-right:0;border-bottom:1px solid var(--line)}
+    .phones{padding:22px 16px;gap:14px}
     .skill-groups{grid-template-columns:1fr 1fr}
     .contact-box{padding:28px}
   }
@@ -274,7 +293,7 @@
         <span class="k">return</span> {
           <span class="s">"voice_agent_latency"</span>: <span class="n">"~1.25s"</span>,
           <span class="s">"dashcam_videos_run"</span>:  <span class="n">"~100"</span>,
-          <span class="s">"plate_detector_mAP50"</span>: <span class="n">0.985</span>,
+          <span class="s">"plate_accuracy"</span>:    <span class="n">"~95%"</span>,
           <span class="s">"platforms_one_app"</span>:   <span class="n">5</span>,
         }  <span class="c"># see below ↓</span></pre>
   </div>
@@ -282,7 +301,7 @@
 
 <div class="stats-strip"><div class="wrap">
   <div class="st"><b>~1.25<em>s</em></b><span>voice-agent response latency</span></div>
-  <div class="st"><b>0.985</b><span>RoadReaper mAP@0.5 (plates)</span></div>
+  <div class="st"><b>~95%</b><span>RoadReaper plate accuracy</span></div>
   <div class="st"><b>~100</b><span>dashcam videos through INDRA</span></div>
   <div class="st"><b>3</b><span>VLMs benchmarked head-to-head</span></div>
 </div></div>
@@ -348,7 +367,7 @@
       <div>
         <p>Off-the-shelf detectors struggle on Indian roads: mixed traffic, non-standard plates, autos, triple riding. INDRA combines YOLO detection, tracking and a vision-language model in one pipeline that processes video in batches and writes a single master report.</p>
         <ul class="pts">
-          <li><b>RoadReaper:</b> my custom YOLO number-plate detector, trained on 38K Indian plate images, reaching mAP@0.5 of 0.985.</li>
+          <li><b>RoadReaper:</b> my custom YOLO number-plate detector, trained on 38K Indian plate images, with about 95% plate accuracy.</li>
           <li><b>YOLOv8m + ByteTrack</b> to detect and track vehicles; <b>Qwen3-VL-4B</b> reads plates with multi-read consensus and describes the scene (weather, congestion, accidents).</li>
           <li><b>5 new violation classes</b> added, such as triple riding, phone use while riding, wrong-lane riding and missing plates.</li>
           <li>Plate validation that rejects false reads such as video watermarks and dashcam clock overlays, with Levenshtein clustering so each physical plate gives one row.</li>
@@ -358,7 +377,7 @@
       </div>
       <div class="metrics">
         <div class="m"><b>38K</b><span>plate images for RoadReaper</span></div>
-        <div class="m"><b>0.985</b><span>plate-detection mAP@0.5</span></div>
+        <div class="m"><b>~95%</b><span>number-plate accuracy</span></div>
         <div class="m"><b>~100</b><span>dashcam videos processed</span></div>
         <div class="m"><b>+5</b><span>new violation classes</span></div>
       </div>
@@ -398,7 +417,12 @@
         <div class="m"><b>JSON</b><span>structured output from a vision LLM</span></div>
       </div>
     </div>
-    <div class="shot"><img src="assets/bill-splitter.webp" alt="AI Bill Splitter screens: home, people, assign items, review bill" loading="lazy" width="1336" height="412"><div class="cap">home → who's splitting → assign items → review bill</div></div>
+    <div class="phones">
+      <figure class="phone"><img src="assets/bill-home.webp" alt="Bill Splitter home screen" width="300" height="400"><figcaption>01 · snap receipt</figcaption></figure>
+      <figure class="phone"><img src="assets/bill-people.webp" alt="Add people screen" width="300" height="400"><figcaption>02 · who's splitting</figcaption></figure>
+      <figure class="phone"><img src="assets/bill-assign.webp" alt="Assign items screen" width="300" height="400"><figcaption>03 · assign dishes</figcaption></figure>
+      <figure class="phone"><img src="assets/bill-review.webp" alt="Review bill with tax and total" width="300" height="400"><figcaption>04 · review &amp; split</figcaption></figure>
+    </div>
     <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Gemini Vision API</span><span class="tag">REST</span></div>
   </article>
 </div></section>
@@ -407,52 +431,76 @@
 <section id="more" style="padding-top:0"><div class="wrap">
   <div class="label rv">// more projects</div>
   <h2 class="rv">More I've built</h2>
-  <p class="sec-sub rv">Video understanding, generative AI and some earlier graphics work.</p>
+  <p class="sec-sub rv">Everything else on my GitHub: vision, 3D/metaverse, graphics and DSA practice.</p>
   <div class="grid3">
-    <a class="mini img rv" href="https://github.com/PranavDabke/egg-segmentation-tracking" target="_blank" rel="noopener">
+    <a class="mini img wide rv" href="https://github.com/PranavDabke/egg-segmentation-tracking" target="_blank" rel="noopener">
       <img src="assets/egg-seg.webp" alt="Egg segmentation masks" width="600" height="300">
       <div class="body">
-        <div class="ic">computer vision</div>
-        <h4>Egg Segmentation &amp; Multi-Object Tracking</h4>
-        <p>Grounded-SAM masks as pseudo ground truth, a classical GrabCut segmenter evaluated against them (IoU, Dice, boundary-F1) and a SORT tracker with Kalman prediction. SAM-base matched SAM-huge on 98.4% of masks.</p>
-        <div class="tags"><span class="tag">SAM</span><span class="tag">Grounding-DINO</span><span class="tag">OpenCV</span><span class="tag">SORT</span></div>
+        <div class="ic">computer vision · segmentation + tracking</div>
+        <h4>Egg Segmentation &amp; Multi-Object Video Tracking</h4>
+        <p>Grounded-SAM (Grounding-DINO + SAM) masks as pseudo ground truth, a classical GrabCut segmenter scored against them (IoU, Dice, boundary-F1, leakage-free pHash split), and a SORT tracker with Kalman prediction and Hungarian matching that gives each egg in a video its own ID. Benchmarked SAM-base, SAM-huge and FastSAM: SAM-base matched SAM-huge on 98.4% of masks.</p>
+        <div class="tags"><span class="tag">SAM</span><span class="tag">Grounding-DINO</span><span class="tag">OpenCV</span><span class="tag">SORT</span><span class="tag">PyTorch</span></div>
         <div class="go">view repo ↗</div>
       </div>
     </a>
-    <div class="mini rv">
-      <div class="ic">rag · video</div>
-      <h4>Query-Driven Traffic Video Summarization</h4>
-      <p>Ask a question about hours of traffic footage and get back a short summary video. Motion segmentation → YOLO11 + ByteTrack → Gemini scene JSON → FAISS retrieval → Gemini verification → FFmpeg summary reel.</p>
-      <div class="tags"><span class="tag">Gemini</span><span class="tag">FAISS</span><span class="tag">YOLO11</span><span class="tag">FFmpeg</span></div>
-    </div>
-    <div class="mini rv">
-      <div class="ic">generative ai · rl</div>
-      <h4>Emotion-Adaptive Storytelling</h4>
-      <p>Detects the listener's emotion with DistilRoBERTa, picks a story genre with Q-learning, writes the story with Qwen2.5-1.5B and reads it aloud in an Indian-accent voice.</p>
-      <div class="tags"><span class="tag">DistilRoBERTa</span><span class="tag">Q-learning</span><span class="tag">Qwen2.5</span><span class="tag">edge-tts</span></div>
-    </div>
-    <a class="mini rv" href="https://github.com/PranavDabke/Metaverse-Virtual-Classroom" target="_blank" rel="noopener">
-      <div class="ic">3d · unity</div>
-      <h4>Metaverse Virtual Spaces</h4>
-      <p>Three Unity environments: a virtual classroom, a shopping room with multiplayer interaction, and a 3D gallery.</p>
-      <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
-      <div class="go">view repos ↗</div>
+    <a class="mini rv" href="https://github.com/PranavDabke/RoadReaper" target="_blank" rel="noopener">
+      <div class="ic">object detection</div>
+      <h4>RoadReaper: Indian Plate Detector</h4>
+      <p>A standalone custom YOLOv8 licence-plate detector for Indian traffic footage, trained on 38K plate images with about 95% plate accuracy, plus its Qwen3-VL integration script. It is the plate module inside INDRA.</p>
+      <div class="tags"><span class="tag">YOLOv8</span><span class="tag">Qwen3-VL</span><span class="tag">Roboflow</span></div>
+      <div class="go">view repo ↗</div>
+    </a>
+    <a class="mini img rv" href="https://github.com/PranavDabke/Metaverse-Virtual-Shopping-Room" target="_blank" rel="noopener">
+      <img src="assets/meta-shopping.webp" alt="Unity virtual shopping room" width="800" height="298">
+      <div class="body">
+        <div class="ic">3d · metaverse</div>
+        <h4>Metaverse Virtual Shopping Room</h4>
+        <p>A 3D store in Unity with walkable navigation, product displays and object placement, built on the Universal Render Pipeline.</p>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">URP</span></div>
+        <div class="go">view repo ↗</div>
+      </div>
+    </a>
+    <a class="mini img rv" href="https://github.com/PranavDabke/Metaverse-Virtual-Classroom" target="_blank" rel="noopener">
+      <img src="assets/meta-classroom.webp" alt="Unity virtual classroom" width="800" height="321">
+      <div class="body">
+        <div class="ic">3d · metaverse</div>
+        <h4>Metaverse Virtual Classroom</h4>
+        <p>An immersive 3D classroom for virtual learning, with first-person navigation and a real-time classroom simulation.</p>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="go">view repo ↗</div>
+      </div>
+    </a>
+    <a class="mini img rv" href="https://github.com/PranavDabke/Metaverse-Virtual-Gallery" target="_blank" rel="noopener">
+      <img src="assets/meta-gallery.webp" alt="Unity virtual gallery" width="800" height="315">
+      <div class="body">
+        <div class="ic">3d · metaverse</div>
+        <h4>Metaverse Virtual Gallery</h4>
+        <p>A virtual exhibition space with framed artwork on the walls that visitors explore in real time.</p>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="go">view repo ↗</div>
+      </div>
     </a>
     <a class="mini rv" href="https://github.com/PranavDabke/Twin-Car-Racing-OpenGL" target="_blank" rel="noopener">
-      <div class="ic">graphics</div>
+      <div class="ic">graphics · game</div>
       <h4>Twin Car Racing (OpenGL)</h4>
-      <p>A 3D racer with collision detection, a live score, procedurally generated obstacles and explosion effects, built on raw OpenGL + GLFW without GLUT.</p>
+      <p>A 3D twin-car racer with collision detection, a live score, procedurally generated obstacles and explosion effects, built on raw OpenGL + GLFW without GLUT.</p>
       <div class="tags"><span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLFW</span></div>
       <div class="go">view repo ↗</div>
     </a>
-    <a class="mini rv" href="https://github.com/PranavDabke" target="_blank" rel="noopener">
-      <div class="ic">everything else</div>
-      <h4>All repositories</h4>
-      <p>Source code, READMEs with evaluation numbers, and my LeetCode solutions, all on GitHub.</p>
+    <a class="mini rv" href="https://github.com/PranavDabke/Leet-Code-Solutions" target="_blank" rel="noopener">
+      <div class="ic">dsa · interview prep</div>
+      <h4>LeetCode Solutions</h4>
+      <p>40 solved problems, synced automatically with LeetHub. They cover hash tables, two pointers, linked lists, trees, graphs (number of islands, course schedule) and heaps.</p>
+      <div class="tags"><span class="tag">DSA</span><span class="tag">Python</span></div>
+      <div class="go">view repo ↗</div>
+    </a>
+    <a class="mini all rv" href="https://github.com/PranavDabke" target="_blank" rel="noopener">
+      <div class="ic">github</div>
+      <h4>All repositories →</h4>
+      <p>Source code and READMEs with evaluation numbers for everything on this page.</p>
       <div class="go">github.com/PranavDabke ↗</div>
     </a>
-  </div>
-</div></section>
+  </div></section>
 
 <!-- ================= SKILLS ================= -->
 <section id="skills" style="padding-top:0"><div class="wrap">
