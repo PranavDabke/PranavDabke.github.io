@@ -348,7 +348,7 @@
       <div>
         <p>Off-the-shelf detectors struggle on Indian roads: mixed traffic, non-standard plates, autos, triple riding. INDRA combines YOLO detection, tracking and a vision-language model in one pipeline that processes video in batches and writes a single master report.</p>
         <ul class="pts">
-          <li><b>RoadReaper:</b> my custom YOLO number-plate detector, trained on 42,750 Indian plate images, reaching mAP@0.5 of 0.985.</li>
+          <li><b>RoadReaper:</b> my custom YOLO number-plate detector, trained on 38K Indian plate images, reaching mAP@0.5 of 0.985.</li>
           <li><b>YOLOv8m + ByteTrack</b> to detect and track vehicles; <b>Qwen3-VL-4B</b> reads plates with multi-read consensus and describes the scene (weather, congestion, accidents).</li>
           <li><b>5 new violation classes</b> added, such as triple riding, phone use while riding, wrong-lane riding and missing plates.</li>
           <li>Plate validation that rejects false reads such as video watermarks and dashcam clock overlays, with Levenshtein clustering so each physical plate gives one row.</li>
@@ -357,7 +357,7 @@
         </ul>
       </div>
       <div class="metrics">
-        <div class="m"><b>42.7K</b><span>plate images for RoadReaper</span></div>
+        <div class="m"><b>38K</b><span>plate images for RoadReaper</span></div>
         <div class="m"><b>0.985</b><span>plate-detection mAP@0.5</span></div>
         <div class="m"><b>~100</b><span>dashcam videos processed</span></div>
         <div class="m"><b>+5</b><span>new violation classes</span></div>
